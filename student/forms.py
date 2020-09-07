@@ -20,7 +20,7 @@ class StudentForm(forms.ModelForm):
 
 		elif len(name) < 5:
 			print("Less than 5 characters")
-			raise forms.ValidationError("Miminum 5 characters required")
+			raise forms.ValidationError("Miminum 5 characters required.")
 			self._errors['name'] = self.error_class(['Miminum 5 characters required'])
 
 		return self.cleaned_data

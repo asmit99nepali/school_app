@@ -1,0 +1,386 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Paathsala Admin System</title>
+        <link rel="shortcut icon" href="favicon.png" type="image/png">
+
+        <!-- Vendors -->
+        <link href="{% static 'student/resources/vendors/animate.css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/zwicon/zwicon.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/overlay-scrollbars/OverlayScrollbars.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/fullcalendar/core/main.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/fullcalendar/daygrid/main.min.css' %}" rel="stylesheet">
+
+        <!-- map -->
+        <link href="{% static 'student/resources/vendors/jqvmap/jqvmap.min.css' %}" rel="stylesheet">
+
+        <!-- animation -->
+        <link href="{% static 'student/resources/vendors/animate.css/animate.min.css' %}" rel="stylesheet">
+
+        <!-- fonts -->
+        <link href="resources/fonts/roboto/roboto.css" rel="stylesheet">
+        <link href="{% static 'student/resources/fonts/roboto/roboto.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/fonts/flaticon/flaticon.css' %}" rel="stylesheet">
+
+        <!-- form elements -->
+        <link href="{% static 'student/resources/vendors/select2/css/select2.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/dropzone/dropzone.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/flatpickr/flatpickr.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/nouislider/nouislider.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/bootstrap-colorpicker/css/bootstrap-colorpicker.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/trumbowyg/ui/trumbowyg.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/resources/vendors/rateyo/jquery.rateyo.min.css' %}" rel="stylesheet">
+
+        <!-- app style -->
+        <link href="{% static 'student/resources/css/app.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/demo/css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+    	<header class="header">
+    	    <div class="header__main">
+    	        <i class="navigation-toggle zwicon-hamburger-menu d-xl-none"></i>
+    	        <div class="logo">
+    	            <a href="#" class="logo-container">
+    	                <div class="logo-main">
+    	                    <img src="demo/img/icon sets/logo.png" />
+    	                </div>
+    	                <div class="logo-text d-none d-md-block">
+    	                    Paathsala
+    	                    <small>Brahma Rupa S.School</small>
+    	                </div>
+    	            </a>
+    	        </div>
+    	        <form class="search">
+    	            <input type="text" class="search__input" placeholder="Search for teacher, students, parents, files and reports">
+    	            <i class="zwicon-search search__helper"></i>
+    	            <i class="zwicon-arrow-left search__reset"></i>
+    	        </form>
+    	        <ul class="top-nav">
+    	            <li class="d-xl-none">
+    	                <a class="top-nav__search" href="#"><i class="zwicon-search"></i></a>
+    	            </li>
+    	            <li>
+    	                <a data-notification="#notifications-alerts" href="#"><i class="zwicon-bell"></i></a>
+    	            </li>
+    	        </ul>
+    	        <div class="user dropdown">
+    	            <a data-toggle="dropdown" class="d-block" href="#">
+    	                <img class="user__img" src="demo/img/profile-pics/1.jpg" alt="">
+    	            </a>
+    	            <div class="account dropdown-menu dropdown-menu-right">
+    	                <div class="dropdown-header">                          
+    	                  <img class="user__img" style="background:url('demo/img/profile-pics/1.jpg') #116a65 no-repeat;background-size: cover" alt="">
+    	                  <div class="group-append ">
+    	                    <span class="heading">Admin</span>
+    	                    <span>admin@gmail.com</span>
+    	                    <div class="account-action">
+    	                        <a href="" class="action-btn">Sign out</a>
+    	                        <a href="" class="action-btn acc-blue">Manage</a>
+    	                    </div>
+    	                  </div>
+    	                </div>
+    	                <a class="dropdown-item" href="#" data-target="" data-notification="#search">
+    	                  <i class="zwicon-search"></i>
+    	                  <div class="group-append ">
+    	                    Search <span>search apps, users, posts, librart, videos</span>
+    	                  </div>
+    	                </a>
+    	                <a class="dropdown-item" href="#" data-target="" data-notification="#search">
+    	                  <i class="zwicon-cable-magsafe"></i>
+    	                  <div class="group-append ">
+    	                    Privacy Settings <span>apps privacy, accounts</span>
+    	                  </div>
+    	                </a>
+    	                <a class="dropdown-item" href="#" data-target="" data-notification="#search">
+    	                  <i class="zwicon-cog"></i>
+    	                  <div class="group-append ">
+    	                    General Setting <span>personalization, logos, accounts</span>
+    	                  </div>
+    	                </a>
+    	                <div class="footer">
+    	                    <a href="">Privacy policy</a>
+    	                    <a href="">Terms of service</a>
+    	                </div>
+    	            </div>
+    	        </div>
+    	    </div>
+    	</header>
+    	<div class="main">
+    		<aside class="sidebar notifications">
+    		    <div class="notifications__panel" id="notifications-alerts">
+    		        <div class="sidebar__header">
+    		            <i class="zwicon-arrow-left sidebar__close"></i>
+    		            <h2>Notifications <small>100+ New Alerts</small></h2>
+    		            <div class="actions">
+    		                <a href="#" class="actions__item"><i class="zwicon-checkmark-circle"></i></a>
+    		            </div>
+    		        </div>
+    		        <div class="notifications__body">
+    		            <div class="scrollbar">
+    		                <div class="listview listview--hover listview--truncate">
+    		                    <a href="#" class="listview__item">
+    		                        <span class="avatar-char bg-red"><i class="zwicon-info-circle"></i></span>
+    		                        <div class="listview__content">
+    		                            <h4>Email Marketing</h4>
+    		                            <p>Need to re-send emails</p>
+    		                        </div>
+    		                    </a>
+    		                    <a href="#" class="listview__item">
+    		                        <span class="avatar-char bg-purple"><i class="zwicon-package"></i></span>
+    		                        <div class="listview__content">
+    		                            <h4>New order recieved</h4>
+    		                            <p>#241 Premium plan for 2 years</p>
+    		                        </div>
+    		                    </a>
+    		                    <a href="#" class="listview__item">
+    		                        <span class="avatar-char bg-blue"><i class="zwicon-calendar-never"></i></span>
+    		                        <div class="listview__content">
+    		                            <h4>Upcoming event</h4>
+    		                            <p>Meeting with Kane Williamson in 8 hours</p>
+    		                        </div>
+    		                    </a>
+    		                    <a href="#" class="listview__item">
+    		                        <span class="avatar-char bg-pink"><i class="zwicon-exclamation-triangle"></i></span>
+    		                        <div class="listview__content">
+    		                            <h4>Server limit reached!</h4>
+    		                            <p>Process reached over 75%</p>
+    		                        </div>
+    		                    </a>
+    		                    <a href="#" class="listview__item">
+    		                        <span class="avatar-char bg-lime"><i class="zwicon-sale-badge"></i></span>
+    		                        <div class="listview__content">
+    		                            <h4>Sold an item</h4>
+    		                            <p>#124 Samsung Galaxy S10 Plus</p>
+    		                        </div>
+    		                    </a>
+    		                    <a href="#" class="listview__item">
+    		                        <span class="avatar-char bg-orange"><i class="zwicon-code"></i></span>
+    		                        <div class="listview__content">
+    		                            <h4>New issue filed</h4>
+    		                            <p>#475 Web page not found</p>
+    		                        </div>
+    		                    </a>
+    		                </div>
+    		            </div>
+    		        </div>
+    		    </div>
+    		</aside>
+    		<aside class="sidebar navigation">
+    		    <div class="mobile_scroll">
+    		        <ul class="navigation__menu">
+    		            <li>
+    		                <a href="index" class="">
+    		                    <i class="zwicon-home"></i>
+    		                    Dashboard
+    		                </a>
+    		            </li>
+    		            <h5 class="navigation-topic">BRANDING FEATURES</h5>
+    		            <li>
+    		                <a href="typography" class="">
+    		                    <i class="zwicon-edit-square-feather"></i>
+    		                    Typography
+    		                </a>
+    		            </li>
+    		            <li class="navigation__sub">
+    		                <a  href="#">
+    		                    <i class="zwicon-tray-stack"></i>
+    		                    Js Component
+    		                </a>
+    		                <ul>
+    		                    <li>
+    		                        <a class="" href="tab">
+    		                            Tabs
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="tooltips">
+    		                            Tooltips
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="popover">
+    		                            Popover
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="modal">
+    		                            Modals
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="dropdown">
+    		                            Drop Down
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="collapse">
+    		                            Collapse
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="carousel">
+    		                            Carousel
+    		                        </a>
+    		                    </li>
+    		                </ul>
+    		            </li>
+    		            <li class="navigation__sub">
+    		                <a  href="#">
+    		                    <i class="zwicon-cursor-square"></i>
+    		                    User Interface
+    		                </a>
+    		                <ul>
+    		                    <li>
+    		                        <a class="" href="colors">
+    		                            Colors
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="animation">
+    		                            Animations
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="button">
+    		                            Buttons
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="icons">
+    		                            Icons
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="badge">
+    		                            Badge
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="pagination">
+    		                            Pagination
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="progress">
+    		                            Progress
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="" href="alert">
+    		                            Alert
+    		                        </a>
+    		                    </li>
+    		                </ul>
+    		            </li>
+    		            <h5 class="navigation-topic">DATA VISUALIZATION</h5>
+    		            <li class="navigation__sub">
+    		                <a  href="#">
+    		                    <i class="zwicon-layout-2"></i>
+    		                    Tables
+    		                </a>
+    		                <ul>
+    		                    <li>
+    		                        <a class="<?php echo route_active('basic-table');?>" href="basic-table">
+    		                            Basic Table
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="<?php echo route_active('data-table');?>" href="data-table">
+    		                            Data Table
+    		                        </a>
+    		                    </li>
+    		                </ul>
+    		            </li>
+    		            <li class="navigation__sub">
+    		                <a  href="#">
+    		                    <i class="zwicon-line-chart"></i>
+    		                    Charts And Maps
+    		                </a>
+    		                <ul>
+    		                    <li>
+    		                        <a class="<?php echo route_active('flot-chart');?>" href="flot-chart">
+    		                            Flot
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="<?php echo route_active('other-chart');?>" href="other-chart">
+    		                            Other Chart
+    		                        </a>
+    		                    </li>
+    		                    <li>
+    		                        <a class="<?php echo route_active('map');?>" href="map">
+    		                            Maps
+    		                        </a>
+    		                    </li>
+    		                </ul>
+    		            </li>
+    		            <h5 class="navigation-topic">OPTIONAL FEATURES</h5>
+    		        </ul>
+    		    </div>
+    		</aside>
+    		{% block content %}
+    		{% endblock %}
+    	</div>
+        <!-- Vendors -->
+        <script src="{% static 'student/resources/vendors/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/popper.js/popper.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/headroom/headroom.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/overlay-scrollbars/jquery.overlayScrollbars.min.js' %}"></script>
+
+        <!-- form elements -->
+        <script src="{% static 'student/resources/vendors/jquery-mask-plugin/jquery.mask.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/select2/js/select2.full.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/dropzone/dropzone.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/flatpickr/flatpickr.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/nouislider/nouislider.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/trumbowyg/trumbowyg.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/rateyo/jquery.rateyo.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jquery-text-counter/textcounter.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/autosize/autosize.min.js' %}"></script>
+        
+
+        <!-- Flot-Charts -->
+        <script src="{% static 'student/resources/vendors/flot/jquery.flot.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/flot/jquery.flot.pie.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/flot/jquery.flot.resize.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/flot/flot.curvedlines/curvedLines.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/flot/flot.orderbars/jquery.flot.orderBars.js' %}"></script>
+
+        <!-- Pie-Charts -->
+        <script src="{% static 'student/resources/vendors/easy-pie-chart/jquery.easypiechart.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/sparkline/jquery.sparkline.min.js' %}"></script>
+
+        <!-- fullcalendar -->
+        <script src="{% static 'student/resources/vendors/fullcalendar/core/main.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/fullcalendar/daygrid/main.min.js' %}"></script>
+
+        <!-- demo js (animations and icon preview) -->
+        <script src="{% static 'student/demo/js/demo.js' %}"></script>
+
+        <!-- maps -->
+        <script src="{% static 'student/resources/vendors/jqvmap/jquery.vmap.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jqvmap/maps/jquery.vmap.world.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jqvmap/maps/jquery.vmap.canada.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jqvmap/maps/jquery.vmap.europe.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jqvmap/maps/jquery.vmap.france.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jqvmap/maps/jquery.vmap.germany.js' %}"></script>
+        <script src="resources/vendors/jqvmap/maps/jquery.vmap.russia.js"></script>
+        <script src="{% static 'student/resources/vendors/jquery/jquery.min.js' %}"></script>
+        <script src="resources/js/app.min.js"></script>
+        <script src="{% static 'student/resources/vendors/jquery/jquery.min.js' %}"></script>
+
+        <!-- Vendors: Data tables -->
+        <script src="{% static 'student/resources/vendors/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/datatables/datatables-buttons/dataTables.buttons.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/datatables/datatables-buttons/buttons.print.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/jszip/jszip.min.js' %}"></script>
+        <script src="{% static 'student/resources/vendors/datatables/datatables-buttons/buttons.html5.min.js' %}"></script>
+    </body>
+</html>

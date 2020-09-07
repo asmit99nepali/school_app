@@ -1,0 +1,82 @@
+.info-box .light {
+	color: #000;
+}
+.info-box {
+	color: #fff;
+	display: block;
+	min-height: 90px;
+	background: #fff;
+	width: 100%;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	border-radius: .2rem;
+	margin-bottom: 15px;
+	box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+	-webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+	-moz-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+}
+.info-box small {
+ 	font-size:14px
+}
+.info-box-icon {
+	border-top-left-radius: .2rem;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: .2rem;
+	display: block;
+	float: left;
+	height: 90px;
+	width: 90px;
+	text-align: center;
+	font-size: 45px;
+	line-height: 90px;
+	background: rgba(0,0,0,0.2);
+}
+.info-box-icon>img {
+	max-width:100%
+}
+.info-box-content {
+	padding:15px 10px;
+	margin-left:90px;
+}
+.info-box-number {
+	display:block;
+	font-weight:bold;
+	font-size:25px;
+}
+.info-box-text {
+	display:block;
+	font-size:12px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+.info-box-text {
+	text-transform:uppercase;
+	color: rgba(255,255,2555,.6);
+}
+.info-box-more {
+	display:block
+}
+
+/*form-divider*/
+.form_divider {
+	padding: 6px 0;
+	font-weight: 600;
+	font-size: 15px;
+	color: #4285f4;
+	display: block;
+	margin: 15px 0;
+	border-bottom: 2px solid #ccc;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.form_divider::after {
+	background: #4285f4;
+	content: '';
+	position: absolute;
+	height: 2px;
+	width: 50px;
+	bottom: -2px;
+	left: 0;
+}

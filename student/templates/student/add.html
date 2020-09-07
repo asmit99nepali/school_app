@@ -1,0 +1,37 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+	<section class="content">
+	    <div class="container">
+	        <header class="content__title">
+	            <h1>Add New Student</h1>
+	        </header>
+
+	        {% if messages %}
+	        	{% for message in messages %}
+	        		<br/>
+	        		<div class="alert alert-info alert-dismissable" role="alert">
+	        			<button class="close" data-dismiss="alert">
+	        				<small><sup>x</sup></small>
+	        			</button>
+	        		  {{message}}
+	        		</div>
+	        	{% endfor %}
+	        {% endif %}
+	        <div class="card">
+	            <div class="card-body">
+	            	<form action="{% url 'add_student' %} " method="POST">
+	            		{% csrf_token %}
+		                <div class="row">
+		                    {{form}}
+			                <div class="clearfix"></div>
+			                <div class="mt-5 text-center">
+			                	<button type="submit" class="btn btn-theme">Save new contact</button>
+			                </div>
+			            </div>
+					</form>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+{% endblock %}

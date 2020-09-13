@@ -1,0 +1,51 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+	<section class="content">
+	    <div class="container">
+	        <header class="content__title">
+	            <h1>All Students</h1>
+	        </header>
+
+	        <div class="card">
+	            <div class="card-body">
+                            <h4 class="card-title">Students</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                    <tr class="bg-success">
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Roll</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Parents</th>
+                                        <th>Image</th>
+                                        <th colspan="2" class="text-center">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for student in students %}
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>{{student.name}}</td>
+                                        <td>{{student.roll}}</td>
+                                        <td>{{student.email}}</td>
+                                        <td>{{student.address}}</td>
+                                        <td>{{student.phone}}</td>
+                                        <td>{{student.parents}}</td>
+                                        <td><img src="{{student.photo.url}}" alt="Alt Photo" width="100" height="100">
+    <br /></td>
+                                        <td><a href="{% url 'edit_student' student.id %}" class=""><i class="zwicon-edit-circle"></i></a></td>
+                                        <td><a class=""><i class="zwicon-trash"></i></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+	        </div>
+	    </div>
+	</section>
+{% endblock %}

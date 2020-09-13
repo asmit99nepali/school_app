@@ -28,8 +28,8 @@ def show(request):
 	return render(request, 'student/show.html',{"students":students})
 
 def edit(request, std_id):
-	# student = Student.objects.get(pk = std_id)
-	student = get_object_or_404(Student,pk = std_id)
+	print(std_id)
+	student = Student.objects.get(pk = std_id)
 
 	if request.method == 'POST':
 		form = StudentForm()

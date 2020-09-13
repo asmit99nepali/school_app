@@ -31,8 +31,8 @@ def edit(request, std_id):
 	print(std_id)
 	student = Student.objects.get(pk = std_id)
 
+	form = StudentForm()
 	if request.method == 'POST':
-		form = StudentForm()
 		form = student(request.POST, request.FILES or None)
 		if form.is_valid():
 			form.save()

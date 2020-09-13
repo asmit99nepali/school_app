@@ -28,9 +28,7 @@ def show(request):
 	return render(request, 'student/show.html',{"students":students})
 
 def edit(request, std_id):
-	print(std_id)
 	student = Student.objects.get(pk = std_id)
-
 	form = StudentForm()
 	if request.method == 'POST':
 		form = student(request.POST, request.FILES or None)
@@ -38,7 +36,9 @@ def edit(request, std_id):
 			form.save()
 			messages.success(request, ('Student Updated Successfully!'))
 			return render(request,'student/add.html', {'form':form})
-		else:
-			form = StudentForm(instance=student)
-	return render(request, 'student/edit.html',{"from":form})
+	else:
+		print(2)
+		form = StudentForm(instance=student)
+		print (form)
+	return render(request, 'student/edit.html',{"form":form})
 

@@ -19,16 +19,73 @@
 	        	{% endfor %}
 	        {% endif %}
 	        <div class="card">
+			<div class="new-contact__header">
 	            <div class="card-body">
-	            	<form action="{% url 'add_student' %} " method="POST">
+	            	<form action="{% url 'add_student' %} " method="POST" enctype="multipart/form-data">
 	            		{% csrf_token %}
 		                <div class="row">
-		                    {{form}}
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label>Name</label>
+		                            {# {{form.name}} #}
+		                             {{form.name}}
+		                            {# <input type="text" name="name" class="form-control" value="{{ form.name.value}}" placeholder="Enter Your name"> #}
+		                            {{ form.errors.name }}
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label>Roll</label>
+		                            {{form.roll}}
+		                            {# <input type="text" name="roll" class="form-control" value="{{ form.roll.value}}" placeholder="Enter Your Roll No."> #}
+		                             {{ form.errors.roll }}
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label>Email</label>
+									{{form.email}}
+		                            {% comment %} <input type="text" name="email" class="form-control" value="{{ form.email.value}}" placeholder="Enter Your Email"> {% endcomment %}
+		                             {{ form.errors.email }}
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label>Address</label>
+									{{form.address}}
+		                            {% comment %} <input type="text" name="address" class="form-control" value="{{ form.address.value}}" placeholder="Enter Your Address"> {% endcomment %}
+		                            {{ form.errors.address }}
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label>Phone</label>
+									{{form.phone}}
+		                            {% comment %} <input type="text" name="phone" class="form-control" value="{{ form.phone.value}}" placeholder="Enter Your Phone"> {% endcomment %}
+		                             {{ form.errors.phone }}
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label>Parents</label>
+									{{form.parents}}
+		                            {% comment %} <input type="text" name="parents" class="form-control" value="{{ form.parents.value}}" placeholder="Enter Your Parents Name" value=""> {% endcomment %}
+		                             {{ form.errors.parents }}
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label>Photo</label>
+									{{form.photo}}
+		                            {% comment %} <input type="text" name="parents" class="form-control" value="{{ form.parents.value}}" placeholder="Enter Your Parents Name" value=""> {% endcomment %}
+		                             {{ form.errors.photo }}
+		                        </div>
+		                    </div>
+			            </div>
 			                <div class="clearfix"></div>
 			                <div class="mt-5 text-center">
 			                	<button type="submit" class="btn btn-theme">Save new contact</button>
 			                </div>
-			            </div>
 					</form>
 	            </div>
 	        </div>
